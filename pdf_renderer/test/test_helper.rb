@@ -3,6 +3,10 @@ ENV["RAILS_ENV"] = "test"
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
+require 'minitest/reporters'
+
+reporter_options = { color: true }
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
 Rails.backtrace_cleaner.remove_silencers!
 
