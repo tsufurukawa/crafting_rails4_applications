@@ -33,6 +33,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    ansi (1.4.3)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     erubis (2.7.0)
@@ -43,6 +44,11 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
     minitest (5.4.2)
+    minitest-reporters (1.0.7)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     multi_json (1.10.1)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -63,6 +69,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
+    ruby-progressbar (1.6.1)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -84,4 +91,5 @@ PLATFORMS
 
 DEPENDENCIES
   mail_form!
+  minitest-reporters
   sqlite3
