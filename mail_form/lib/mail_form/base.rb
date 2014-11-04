@@ -19,17 +19,32 @@ module MailForm
       self.attribute_names += names
     end
 
-    def persisted?
-      false
+    def initialize(attributes={})
+      attributes.each { |attr, value| self.public_send("#{attr}=", value) } if attributes
     end
 
+    include MailForm::Validators
+
+    # Add callbacks behavior
+    extend ActiveModel::Callbacks
+
+    # Define the callbacks with the same semantics as in ActiveRecord
+    define_model_callbacks :deliver
+
+    # Run the callbacks
     def deliver
       # "valid?" method is given to us by ActiveModel::Validations
       if valid?
-        MailForm::Notifier.contact(self).deliver # now this 'deliver' is from ActionMailer::Base
+        run_callbacks(:deliver) do
+          MailForm::Notifier.contact(self).deliver # this 'deliver' is from ActionMailer::Base
+        end
       else
         false
       end
+    end
+
+    def persisted?
+      false
     end
 
     protected
