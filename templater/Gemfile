@@ -39,5 +39,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'minitest-reporters', group: :test
+gem 'capybara'
   
 
