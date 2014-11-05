@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  body: "Body"
+  path: "some/path"
+  format: "html"
+  locale: "en"
+  handler: "erb"
+  partial: false
